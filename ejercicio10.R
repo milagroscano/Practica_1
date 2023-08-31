@@ -1,26 +1,42 @@
 rm(list=ls())
 
-# Ejercicio 10 
+# Ejercicio 10
 
-# Hacer un programa que le pida a un alumno de la carrera de Licenciatura en Ciencias de la Atmosfera 
-# sus datos personales (Nombre,Apellido), su libreta universitaria en formato N/AA, donde N es un numero 
-# (que puede tener de 1 a 4 cifras) y AA es la terminacion del año en que se inscribio, y la cantidad 
-# de materias aprobadas. Luego el programa debe imprimir el siguiente mensaje: 
+# Hacer un programa que le pida a un alumno de la carrera de Licenciatura en Ciencias de la Atm´osfera
+# sus datos personales (Nombre, Apellido), su libreta universitaria en formato N/AA, donde N es un
+# n´umero (que puede tener de 1 a 4 cifras) y AA es la terminaci´on del a˜no en que se inscribi´o, y la
+# cantidad de materias aprobadas. Luego el programa debe imprimir el siguiente mensaje:
 
-# “ El alumno Nombre y Apellido se inscribio como alumno de Exactas en el puesto N en el año 20AA y debe 
-# aprobar X materias para obtener el tıtulo de grado ” 
+#  “El alumno Nombre y Apellido se inscribi´o como alumno de Exactas en el puesto N en el a˜no 20AA
+# y debe aprobar X materias para obtener el t´ıtulo de grado”
 
-# donde Nombre, Apellido, N y AA son los datos ingresados por el usuario. Notar que N y AA no se ingresan 
-# por separado, si no que corresponden al ingreso de la libreta universitaria. 
-# Asumir que la carrera cuenta con 20 materias en total y que el alumno se inscribio despues de 1999.
-# Antes de escribir el codigo, escriba el diagrama de flujo asociado.
+# donde Nombre, Apellido, N y AA son los datos ingresados por el usuario. Notar que N y AA no se
+# ingresan por separado, sino que corresponden al ingreso de la libreta universitaria. Asumir que la
+# carrera cuenta con 20 materias en total y que el alumno se inscribi´o despu´es de 1999. Antes de escribir
+# el c´odigo, escriba el diagrama de flujo asociado.
 
-nomyap = readline("Ingrese su Nombre, Apellido:")
-lib_uni = readline("Ingrese su libreta universitaria en formato N/AA:")
-cant_mat_ap = readline("Ingrese la cantidad de materias que aprobó hasta el momento:")
+# defino las variables que quiero que me ingresen por pantalla
+NomAp <- readline("Ingrese su nombre y apellido:")
+lib_uni <- readline("Ingrese su numero de libreta en formato N/AA:")
+cant_mat_ap <- as.numeric(readline("Ingrese la cantidad de materias aprobados hasta el momento:"))
+
+# separo las variables antes definidas para poder armar el texto pedido 
+sep_NomAp <- scan(text = NomAp, what = "")
+Nombre <- sep_NomAp[1]
+Apellido <- sep_NomAp[2]
+
+long_lib <- nchar(lib_uni)
+N <- substr(lib_uni, 1, long_lib-3)
+AA <- substr(lib_uni, long_lib-1, long_lib)
+
+# realizo el calculo para saber cuantas materias le falta al alumno para recibirse
+total_mat <- 20
+X <- total_mat - cant_mat_ap
+
+# armo el texto pedido
+anio <- paste0("20", AA)
+
+texto <- print(paste("El alumno", Nombre, Apellido, "se inscribió como alumno de Exactas en el puesto", N, "en el año", anio, "y debe aprobar", X, "materias para obtener el título de grado"))
 
 
-long_lib = nchar(lib_uni)
-N = substr(lib_uni, 1, long_lib-3)
-
-
+# token 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

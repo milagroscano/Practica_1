@@ -30,13 +30,12 @@ Apellido <- sep_NomAp[2]
 long_lib <- nchar(lib_uni)
 N <- substr(lib_uni, 1, long_lib-3)
 AA <- substr(lib_uni, long_lib-1, long_lib)
+anio <- paste0("20", AA)
 
 # realizo el calculo para saber cuantas materias le falta al alumno para recibirse
 total_mat <- 20
 X <- total_mat - cant_mat_ap
 
 # armo el texto pedido
-anio <- paste0("20", AA)
-
 texto <- print(paste("El alumno", Nombre, Apellido, "se inscribió como alumno de Exactas en el puesto", N, "en el año", anio, "y debe aprobar", X, "materias para obtener el título de grado"))
 
